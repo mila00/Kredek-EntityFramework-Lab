@@ -1,0 +1,21 @@
+﻿@model Director
+
+
+@using (Html.BeginForm("Create", "Directors", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(model => model.FirstName)
+        <div class="col-md">
+            @Html.TextBoxFor(model => model.FirstName)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.LastName)
+        <div class="col-md">
+            @Html.TextBoxFor(model => model.LastName)
+        </div>
+    </div>
+
+    <input type="submit" value="Dodaj film" class="btn btn-primary" />
+}

@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Movie>
+
+@{
+    ViewData["Title"] = "Lista filmów";
+}
+
+<p>
+    @Html.ActionLink("Utwórz nowy", "Create", "Movies")
+</p>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YearOfRelease)
+        </th>
+        <th>
+
+        </th>
+    </tr>
+    </thead>
+    
+    <tbody>
+        @foreach (var movie in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => movie.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => movie.YearOfRelease)
+            </td>
+            <td>
+                @Html.ActionLink("Edytuj", "Edit", "Movies", routeValues: new { id = movie.Id })
+                @Html.ActionLink("Usuń", "Delete", "Movies", routeValues: new { id = movie.Id })
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
